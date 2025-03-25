@@ -14,6 +14,9 @@ This page will be used as a Table of Contents with links to different lab sectio
 - We will put the GPOs we previously created into effect.
 ### [04: Set Up Network Sharing & Permissions](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Set%20Up%20Network%20Sharing%20%26%20Permissions.md)
 - We will begin setting up our file-sharing structure. This will allow us to share various files and folders across our domain. We will also ensure the correct permissions are put in place.
-### [04: Setting Up FSRM (File Server Resource Manager)](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Setting%20Up%20FSRM%20(File%20Server%20Resource%20Manager.md)
+
+### [05: Setting Up FSRM()
 - FSRM will be used to manage and classify the data stored on our file server. We will notify users when folders are getting full and to clean up their storage to prevent full disks.
-[Implement and Apply Security Policies](#implement-and-apply-security-policies)
+
+### [06: Implement and Apply Security Policies](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Implement%20and%20Apply%20Security%20Policies.md)
+- We will be securing our domain with user rights.
