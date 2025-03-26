@@ -43,5 +43,12 @@ FSRM will be used to manage and classify data stored on our file server. We’ll
      - **Image Files**
      - **Web Page Files**
    - This restricts large file types to minimize storage usage.
+
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/fileScreeningShared.png">
+</p>
+
    - When prompted, create a template:
      - Name it `SHARED` and click **OK**.
+   
+Congratulations you have configured a File Server!
