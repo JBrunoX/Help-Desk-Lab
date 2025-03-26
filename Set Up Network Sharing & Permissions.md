@@ -18,6 +18,11 @@ Next, we’ll set up our file-sharing structure to enable sharing files and fold
    - Click **Permissions** > **Add**.
    - In the text field, type `domain`, then click **Check Names**.
    - Select **Domain Users** (this allows all domain users to access the folder).
+
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/ShardFolderDomain.png">
+</p>
+
    - Click **Apply** and **OK** to return to the **Shared Properties** window.
 
 3. **Map the Network Drive on the Enterprise VM**
@@ -27,7 +32,10 @@ Next, we’ll set up our file-sharing structure to enable sharing files and fold
    - Find the folder path:
      - On the Windows Server VM, open Command Prompt and type `hostname`.
      - Note the output (e.g., `WIN-XXXXX`).
-   - Back on the Enterprise VM, enter the path: `\\hostname\SHARED` (replace `hostname` with your server’s hostname).
+   - Back on the Enterprise VM, enter the path: `\\hostname\Shared` (replace `hostname` with your server’s hostname).
+
+
+
    - Click **Finish**. You should now have access to the shared folder.
 
 4. **Automate Network Sharing with a GPO**
@@ -38,16 +46,21 @@ Next, we’ll set up our file-sharing structure to enable sharing files and fold
         - Name it `Mapped Drives`.
         - Right-click the new policy > **Edit**.
      2. Configure the drive mapping:
-        - Navigate to **User Configuration** > **Preferences** > right-click **Drive Maps** > **New** > **Mapped Drive**.
-        - In the **Location** field, enter the path used earlier (e.g., `\\hostname\SHARED`).
+        - Navigate to **User Configuration** > **Preferences** > **Windows Settings** > right-click **Drive Maps** > **New** > **Mapped Drive**.
+        - In the **Location** field, enter the path used earlier (e.g., `\\hostname\Shared`).
         - Set **Label as**: `SHARED`.
         - Set **Drive Letter**: `S`.
-        - Click **Apply** > **OK**.
-     3. Apply the GPO:
-        - Drag the `Mapped Drives` GPO to the **Users** OU (like previous GPOs).
-     4. Verify the GPO:
-        - On the Enterprise VM, go to **This PC**.
-        - Check under **Network Locations** for the mapped drive.
-        - If it’s not visible:
-          - Open Command Prompt, type `gpupdate /force`, and reboot the machine.
-     5. **Result**: Users now have permanent access to the shared folder. Since it’s under **User > Preferences**, they can optionally remove or re-add it.
+
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/mapDriveProp.png">
+</p>
+
+ - Click **Apply** > **OK**.
+  3. Apply the GPO:
+      - Drag the `Mapped Drives` GPO to the **Users** OU (like previous GPOs).
+    4. Verify the GPO:
+      - On the Enterprise VM, go to **This PC**.
+      - Check under **Network Locations** for the mapped drive.
+      - If it’s not visible:
+         - Open Command Prompt, type `gpupdate /force`, and reboot the machine.
+  5. **Result**: Users now have permanent access to the shared folder. Since it’s under **User > Preferences**, they can optionally remove or re-add it.
