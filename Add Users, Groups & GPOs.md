@@ -142,4 +142,10 @@
 
 ---
 
-**Congratulations!** You’ve populated Active Directory with OUs, groups, users, and applied GPOs to the "USA" OU.
+**Congratulations!** You’ve populated your domain with OUs, groups, and users and applied GPOs to the USA OU.
+
+**Your Group Policy Objects OU should look similar to the image below, except for the User Rights Policy, Mapped Drives, and Printer Deployment Policy. Those will be added soon, so don't worry.
+
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/GPO%20creations.png">
+</p>
