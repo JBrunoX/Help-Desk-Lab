@@ -10,9 +10,13 @@
 - **Create Top-Level OUs:**
   1. On the left, right-click your domain name.
   2. Select "New" > "Organizational Unit."
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/new%20OU.png">
+</p>
+
   3. Name it "USA" and click OK.
   4. Repeat this process to create two more OUs: "Europe" and "Asia."
-     - **Note:** For this simulation, we’ll only populate the "USA" OU.
+     - **Note:** We’ll only populate the "USA" OU for this simulation.
 - **Add Sub-OUs to USA:**
   1. Right-click the "USA" OU.
   2. Select "New" > "Organizational Unit."
@@ -25,6 +29,11 @@
 - **Add Security and Distribution Groups:**
   1. Right-click the "Users" container in the left pane.
   2. Select "New" > "Group."
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/new%20Group.png">
+</p>
+ 
+
   3. Name it "IT," set Group Scope to "Global," and Group Type to "Security." Click OK.
   4. Create another group named "DL - ITAdmins," set Group Scope to "Global," and Group Type to "Distribution." Click OK.
 - **Repeat for Other Departments:**
@@ -39,7 +48,12 @@
 - **Add New Users:**
   1. Right-click the "Users" container in the left pane.
   2. Select "New" > "User."
-  3. Fill in all fields (e.g., First Name, Last Name, User Logon Name), click Next, set a password, and click OK.
+  3. Fill in all fields (e.g., First Name, Last Name, User logon Name), click Next, set a password, and click OK.
+
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/newUser.png">
+</p>
+
   4. Repeat this process three more times to create a total of four users.
 - **Assign Users to Groups:**
   - For each user:
@@ -54,11 +68,24 @@
 
 - **Open Group Policy Management:**
   - In the Windows search bar, type "Group Policy Management" and click it.
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/openGPM.png">
+</p>
 
 ### Password Policy
-1. Navigate to: Forest > Domains > right-click "Group Policy Objects."
+1. Navigate to: Forest > Domains > .local < right-click "Group Policy Objects."
+
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/newGPO.png">
+</p>
+
 2. Select "New," name it "Password Policy," and click OK.
 3. Right-click "Password Policy" under Group Policy Objects and click "Edit."
+
+<p align="center">
+     <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/editPolicy.png">
+</p>
+
 4. Go to: Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Password Policy.
 5. Configure these settings:
    - **Enforce password history:** Set to 24.
