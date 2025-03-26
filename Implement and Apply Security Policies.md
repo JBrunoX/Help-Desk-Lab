@@ -12,6 +12,10 @@ Security is critical, so we’ll secure our domain by configuring user rights.
 2. **Edit the User Rights Policy**
    - Right-click **User Rights Policy** under `.local` > **Edit**.
 
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/userRightsEdit.png">
+</p>
+
 3. **Configure User Rights Assignments**
    - Navigate to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **User Rights Assignment**.
    - **Deny log on locally:**
@@ -27,6 +31,10 @@ Security is critical, so we’ll secure our domain by configuring user rights.
      - Type `IT`, click **Check Names** (this populates the path to the IT group).
      - Click **OK** > **Apply** > **OK**.
 
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/remoteDeskPolicy.png">
+</p>
+
 4. **Test the Policies**
    - **Test "Deny log on locally":**
      - Attempt to log into either the Windows Server or Enterprise VM using a user from the HR department.
@@ -37,3 +45,5 @@ Security is critical, so we’ll secure our domain by configuring user rights.
      - Enter your Windows Server’s hostname (e.g., `WIN-XXXXX`) and click **Connect**.
      - Expected result: An error message stating, *"Remote Desktop can't connect to the remote computer for one of these reasons..."*.
    - If both tests produce these errors, the policies are configured correctly.
+
+Congratulations on successfully implementing User Right Policies!
