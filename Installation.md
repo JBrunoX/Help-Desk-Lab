@@ -5,21 +5,31 @@
 - **Download VMware Workstation Pro:**
   - Visit [VMware's download page](https://knowledge.broadcom.com/external/article/344595/downloading-and-installing-vmware-workst.html).
   - Scroll to "Download VMware Workstation Pro."
+ <p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/dd1e4c7f9b8ac541c5a1cdf466eeace5e9624bca/images/download%20VMware.png">
+</p>
   - Login or create a free Broadcom account when prompted.
+
 - **Choose Your Version:**
+ <p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/vmware%20version.png">
+</p>
+
   - For Windows users: Select "VMware Workstation Pro 17.0 for Windows."
   - For Linux users: Select "VMware Workstation Pro 17.0 for Linux."
-  - If you don’t see these options, use this [alternate link](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true), pick the latest release, agree to the Terms and Conditions, and click the download icon on the right.
+  - If you don’t see these options, use this [alternate link](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware%20Workstation%20Pro&freeDownloads=true), pick the latest release (could be newer then 17.0) agree to the Terms and Conditions, and click the download icon on the right.
 - **Install It:**
   - Once downloaded, open the file and follow the installation wizard.
   - If you encounter issues, refer to this [Broadcom troubleshooting article](https://knowledge.broadcom.com/external/article?articleNumber=387947).
-
 ---
 
 ## Step 2: Download Windows Server 2025
-
 - Go to the [Microsoft Evaluation Center](https://www.microsoft.com/en-us/evalcenter/download-windows-server-2025).
 - Select the ISO download option in your preferred language.
+
+ <p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/windows2025PickLang.png">
+</p>
 - Save the file to your computer.
 
 ---
@@ -30,24 +40,30 @@
   - Launch VMware Workstation Pro and select "Personal use" to keep it free.
 - **Set Up the VM:**
   1. Click "Create a New Virtual Machine."
-  2. Choose "I will install the operating system later" and click Next.
-  3. For the Guest Operating System, select "Windows Server 2025" as the Version, then click Next.
-  4. Name your virtual machine (e.g., "WinServer2025") and click Next.
-  5. Set the disk size:
-     - Recommend at least 60 GB. (I used 80 GB since I had extra space.)
-     - Click Next.
-- **Customize Settings:**
-  1. At "Ready to Create Virtual Machine," click "Customize Hardware."
-  2. Adjust memory:
-     - The default is 2 GB (2048 MB). I recommend increasing it to 4 GB (4096 MB).
-     - I used 6 GB (6144 MB) since my system has 48 GB total.
-  3. Adjust processors:
-     - Change "Number of processors" to 2.
-     - Leave "Number of cores per processor" at 1.
-  4. Add the ISO:
+ <p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/df25d2e53a302b349877f7a65f90de16289c4079/images/createNewVM.png">
+</p>
+
+  3. Choose "Typical (recommended)" and click next.
+  4. Choose "I will install the operating system later" and click Next.
+  5. Leave Microsoft Windows as your Guest Operating System and choose "Windows Server 2025" as the Version, then click Next.
+  6. Name your virtual machine (e.g., "WinServer2025") and click Next.
+  7. Set the disk size:
+     - Recommend at least 70 GB. (I used 80 GB since I had extra space.)
+     - Leave "split virtual disk into multiple files" selected and click next.
+  8. Choose "Customize Hardware."
+  9. Adjust memory:
+     - I recommend increasing this to 4 GB (4096 MB). I used 6 GB (6144 MB) since my system has 48 GB total.
+  10. Adjust processors:
+     - Change "Number of cores per processors" to 2. Leave "Number of processors" set to 1.
+  11. Add the ISO:
      - Click "CD/DVD (SATA)," select "Use ISO image file," then click "Browse."
      - Choose the Windows Server 2025 ISO you downloaded, then click "Open."
-  5. Click "Close," then "Finish."
+<p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/a3050e8f93eda00b510f6567602ef9d5c39a255c/images/customizeHardwireVMServer.png">
+</p>
+
+  13. Click "Close," then "Finish."
 - **Start the VM:**
   - Select "Power on this virtual machine."
   - Quickly press any key repeatedly to boot from the ISO. (If you miss it, you’ll see a "Time Out" or "EFI Network" error.)
