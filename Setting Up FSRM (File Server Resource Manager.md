@@ -18,7 +18,7 @@ FSRM will be used to manage and classify data stored on our file server. We’ll
    - Set the **Quota Path** to the shared drive:
      - Click **Browse** > **Local Disk (C:)** > **Shared**.
    - Click **Define custom quota properties** > **Custom Properties**.
-   - Keep **Hard Quota** selected and set the limit to `10 GB`.
+   - Keep **Hard Quota** selected and set the limit to `100 MB`.
    - Configure notification:
      - Click **Add**, change the threshold from `85` to `80` (notifies at 80% usage).
      - Set the description to `Disk Usage 80%`.
@@ -26,6 +26,11 @@ FSRM will be used to manage and classify data stored on our file server. We’ll
    - Click **OK** > **Yes** > **OK** until back at the **Create Quota** window, then click **Create**.
    - When prompted, create a template:
      - Name it `SHARED` and click **OK**.
+     - and it should look like this:
+
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/QuotaTemplate.png">
+</p>
 
 3. **Set Up File Screening for the Shared Folder**
    - In FSRM, go to **File Screening Management** > right-click **File Screens** > **Create File Screen**.
