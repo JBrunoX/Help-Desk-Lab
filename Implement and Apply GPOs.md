@@ -1,57 +1,74 @@
 # Implement and Apply GPOs
 
-Now we will put the GPOs we previously created into effect.
+Let’s put the Group Policy Objects (GPOs) we created earlier into action.
+
+---
 
 ## Steps
 
-1. **Access Group Policy Management**
-   - Log back into Windows Server.
-   - Open **Group Policy Management**.
-   - Let’s start by restricting Control Panel access for our Users.
+### Step 1: Access Group Policy Management
+1. Log back into your **Windows Server**.  
+2. Open **Group Policy Management**.  
+3. We’ll start by restricting Control Panel access for our users.
 
-2. **Link GPOs to Organizational Units (OUs)**
-   - In the left pane, navigate to **Group Policy Objects** > **Restrict Control Panel**.
-   - Click and drag this policy to **USA** > **Users** (since it was created using User Configuration).
-   - Repeat for the other policies:
-     - **Desktop Wallpaper**
-     - **Disable USB**
-     - **Password**
-     - **Drive Mapping**
-   - **Note**: Drag each policy to the appropriate OU based on its configuration type (User or Computer).
-   - By the end your left pane just look similar to this except for a few policies that wwe will add later.
+---
 
-<p align="center">
-   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/GPO%20clickDrag.png">
-</p>
+### Step 2: Link GPOs to Organizational Units (OUs)
+1. In the left pane, go to **Group Policy Objects**.  
+2. Find **Restrict Control Panel**, then click and drag it to **USA** > **Users**.  
+   - This works because it’s a **User Configuration** policy.  
+3. Repeat for these policies:  
+   - **Desktop Wallpaper**  
+   - **Disable USB**  
+   - **Password**  
+   - **Drive Mapping**  
+   - **Note:** Drag each policy to the right OU based on its configuration type (User or Computer).  
+4. When done, your left pane should look similar to this (minus a few policies we’ll add later):  
 
-4. **Move the Computer to the Correct OU and Test Policies**
-   - When we added our computer to the domain, it was placed in the generic **Computers** container. We need to move it to the **Computers** OU.
-   - **Steps:**
-     1. Open **Active Directory Users and Computers**.
-        - Go to **Builtin** > **Computers**.
-        - Locate the Enterprise computer (e.g., `enterpriseVM`).
-     2. Move the computer:
-        - Right-click it > **Move** > **USA** > **Computers** > **OK**.
-        - Navigate to **USA** > **Computers** to verify it’s there.
-        - If it’s not visible, right-click a blank space and select **Refresh**.
-     3. Add a description:
-        - Right-click the computer > **Properties**.
-        - Enter a description (e.g., `Shared Desktop`).
-     4. Test the **Restrict Control Panel** policy:
-        - Log into a User account on your Enterprise VM.
-        - Attempt to access the Control Panel.
-           - Search for Control Panel in the Windows search. 
-        - Expected result: A pop-up stating, *"This operation has been cancelled due to restrictions in effect..."*.
+   <p align="center">
+      <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/GPO%20clickDrag.png">
+   </p>
 
-<p align="center">
-   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/deniedControlPanel.png">
-</p>
+---
 
-   6. If the policy doesn’t apply yet:
-        - GPOs refresh every 90 minutes by default (with a random 30-minute offset).
-        - To force an immediate update:
-          - Open Command Prompt on the Enterprise VM.
-          - Type `gpupdate /force` and wait for it to complete successfully.
-        - Retest access to the Control Panel.
-     7. Test the remaining policies:
-        - Verify **Desktop Wallpaper**, **Disable USB**, **Password**, and **Drive Mapping** as needed.
+### Step 3: Move the Computer to the Correct OU and Test Policies
+When we added the computer to the domain, it landed in the generic **Computers** container. Let’s move it to the **Computers** OU under **USA** and test the policies.
+
+1. **Open Active Directory Users and Computers**:  
+   - Go to **Builtin** > **Computers**.  
+   - Find your Enterprise computer (e.g., `enterpriseVM`).  
+
+2. **Move the Computer**:  
+   - Right-click it > **Move**.  
+   - Select **USA** > **Computers** > **OK**.  
+   - Check **USA** > **Computers** to confirm it’s there.  
+   - If it’s not showing, right-click a blank space and hit **Refresh**.
+
+3. **Add a Description**:  
+   - Right-click the computer > **Properties**.  
+   - Type a description (e.g., `Shared Desktop`) and click **OK**.
+
+4. **Test the Restrict Control Panel Policy**:  
+   - Log into a user account on your **Enterprise VM**.  
+   - Try opening the Control Panel:  
+     - Search for **Control Panel** in the Windows search bar.  
+   - **Expected Result:**
+
+   <p align="center">
+      <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/deniedControlPanel.png">
+   </p>
+
+5. **If the Policy Doesn’t Apply Yet**:  
+   - GPOs update every 90 minutes (with a random 30-minute offset).  
+   - To apply it now:  
+     - On the Enterprise VM, open **Command Prompt**.  
+     - Type `gpupdate /force` and wait for it to finish.  
+   - Retest the Control Panel access.
+
+6. **Test the Other Policies**:  
+   - Check that **Desktop Wallpaper**, **Disable USB**, **Password**, and **Drive Mapping** work as expected.
+
+---
+
+## All Done!
+You’ve successfully linked and applied your GPOs. Nice job!
