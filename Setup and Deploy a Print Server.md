@@ -1,39 +1,79 @@
-# Implement and Apply Security Policies
+# Setup and Deploy a Print Server
 
-Security is critical, so we’ll secure our domain by configuring user rights.
+Let’s add a print server to our domain and use Group Policy to deploy it to users.
+
+---
 
 ## Steps
 
-1. **Create a New GPO**
-   - Log into Windows Server and open **Group Policy Management (GPM)**.
-   - Right-click your domain (e.g., `domain.local`) > **Create a GPO in this domain, and Link it here...**.
-   - Name it `User Rights Policy` and click **OK**.
+### Step 1: Install and Configure the Print Server
+1. On your **Windows Server**, open **Server Manager**.  
+2. Click **Manage** (top right) > **Add Roles and Features** > **Next**.  
+3. Keep **Role-based or feature-based installation** selected > **Next** > **Next**.  
+4. Check **Print and Document Services** > **Add Features**.  
+5. Click **Next** until you see **Install**, then click **Install**.  
+6. When finished, click **Close**.  
+7. Go to **Tools** (top right) > **Print Management**.  
+8. Expand **Print Servers** > **hostname (local)** > right-click **Printers** > **Add Printer**.  
+   - **If you get an error**: Ensure the Print Spooler is running:  
+     - Press `Win + R`, type `services.msc`, and press **Enter**.  
+     - Find **Print Spooler**, double-click it, and check that **Service status** says **Running**.  
+     - If it’s **Stopped**, click **Start**.  
+     - Or, in Command Prompt, type `Get-Service -Name Spooler`. If stopped, type `Start-Service -Name Spooler`.
 
-2. **Edit the User Rights Policy**
-   - Right-click **User Rights Policy** under `.local` > **Edit**.
+9. In the **Add Printer** wizard:  
+   - Select **Add a new printer using an existing port**.  
+   - Choose **Local Port** from the dropdown (if your printer is plugged in) > **Next**.  
+   - Pick **Use an existing printer driver on the computer** > **Next**.  
+   - Name your printer something clear (e.g., `OfficePrinter`).  
+   - Add details:  
+     - **Location**: `Main Office`  
+     - **Comment**: `This is the printer in the main office`  
+   - Click **Next** until you see **Print a test page**, then test it to confirm it works.
 
-3. **Configure User Rights Assignments**
-   - Navigate to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Local Policies** > **User Rights Assignment**.
-   - **Deny log on locally:**
-     - Double-click **Deny log on locally**.
-     - Check **Define these policy settings**.
-     - Click **Add User or Group** > **Browse**.
-     - Type `HR`, click **Check Names** (this populates the path to the HR group).
-     - Click **OK** > **Apply** > **OK**.
-   - **Allow log on through Remote Desktop Services:**
-     - Double-click **Allow log on through Remote Desktop Services**.
-     - Check **Define these policy settings**.
-     - Click **Add User or Group** > **Browse**.
-     - Type `IT`, click **Check Names** (this populates the path to the IT group).
-     - Click **OK** > **Apply** > **OK**.
+10. Right-click the printer name > **Properties** > **Sharing** tab.  
+    - Check **List in the directory** > **Apply** > **OK**.
 
-4. **Test the Policies**
-   - **Test "Deny log on locally":**
-     - Attempt to log into either the Windows Server or Enterprise VM using a user from the HR department.
-     - Expected result: A message stating, *"The sign-in method you're trying to use isn't allowed..."*.
-   - **Test "Allow log on through Remote Desktop Services":**
-     - Log into the Enterprise VM with a non-HR user.
-     - In Windows Search, type **Remote Desktop Connection** and open it.
-     - Enter your Windows Server’s hostname (e.g., `WIN-XXXXX`) and click **Connect**.
-     - Expected result: An error message stating, *"Remote Desktop can't connect to the remote computer for one of these reasons..."*.
-   - If both tests produce these errors, the policies are configured correctly.
+---
+
+### Step 2: Add the Printer to the Domain
+1. Open **Active Directory Users and Computers**.  
+2. Right-click **USA** > **New** > **Organizational Unit**.  
+3. Name it `Printers` > **OK**.  
+4. Right-click the **Printers OU** > **New** > **Group**.  
+5. Name it after your printer (e.g., `OfficePrinter`).  
+6. Add a description: `This deploys OfficePrinter` > **Apply** > **OK**.
+
+---
+
+### Step 3: Create a GPO to Deploy the Printer
+1. Open **Group Policy Management (GPM)**.  
+2. Right-click **Group Policy Objects** > **New**.  
+3. Name it `Printer Deployment Policy` > **OK**.  
+4. Right-click **Printer Deployment Policy** > **Edit**.  
+5. Go to **User Configuration** > **Preferences** > **Control Panel Settings** > **Printers**.  
+6. Right-click **Printers** > **New** > **Shared Printer**.  
+7. Next to **Share path**, click the three dots (`…`), find your printer in the search results, and click **OK**.  
+8. Go to the **Common** tab:  
+   - Check **Item-level targeting** > click **Targeting**.  
+   - Click **New Item** > **Security Group**.  
+   - Click the three dots (`…`) next to the Group box, type your printer group name (e.g., `OfficePrinter`), and click **OK**.  
+9. Ensure **Action** is set to **Update** > **Apply** > **OK**.  
+10. Drag the **Printer Deployment Policy** GPO to the **Users** OU.
+
+---
+
+### Step 4: Verify the Printer Deployment
+1. Log into a user account on your **Enterprise VM**.  
+2. Open **Command Prompt** and type `gpresult /r`.  
+   - Look under **Applied Group Policy Objects** for `Printer Deployment Policy`.  
+   - **If it’s not there**: Type `gpupdate /force`, then reboot the VM.  
+3. After reboot, run `gpresult /r` again to confirm it’s applied.  
+4. Open **Settings** > **Printers & Scanners**.  
+   - Wait for settings to update if needed.  
+   - Check that your printer (e.g., `OfficePrinter`) is listed.
+
+---
+
+## All Done!
+You’ve set up a print server and deployed it to users with a GPO. Fantastic job!
