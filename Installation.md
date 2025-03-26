@@ -86,6 +86,9 @@
   5. Choose your disk, click Next, then click "Install."
 - **Wait and Finish:**
   - The installation will take some time. Once complete, set a password and log in.
+<p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/serverLogIn.png">
+</p>
 
 ---
 
@@ -98,7 +101,11 @@
   2. Click Next (keep "Role-based or feature-based installation" selected).
   3. Click Next twice more to reach the roles list.
   4. Check "Active Directory Domain Services," then click "Add Features" when prompted.
-  5. Keep clicking Next until you see "Install," then click it.
+<p align="center">
+  <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/adFeatureAdd.png">
+</p>
+
+  5. Keep clicking Next until you see "Install" then click it.
 - **Promote to Domain Controller:**
   1. After installation, click the notification flag and select "Promote this server to a domain controller."
   2. Choose "Add a new forest" and enter a domain name (e.g., "HelpDeskSim.local"). The ".local" is required.
