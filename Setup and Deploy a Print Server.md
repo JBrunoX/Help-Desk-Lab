@@ -14,7 +14,12 @@ Let’s add a print server to our domain and use Group Policy to deploy it to us
 5. Click **Next** until you see **Install**, then click **Install**.  
 6. When finished, click **Close**.  
 7. Go to **Tools** (top right) > **Print Management**.  
-8. Expand **Print Servers** > **hostname (local)** > right-click **Printers** > **Add Printer**.  
+8. Expand **Print Servers** > **hostname (local)** > right-click **Printers** > **Add Printer**.
+
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/addPrinter.png">
+</p>
+
    - **If you get an error**: Ensure the Print Spooler is running:  
      - Press `Win + R`, type `services.msc`, and press **Enter**.  
      - Find **Print Spooler**, double-click it, and check that **Service status** says **Running**.  
@@ -31,7 +36,7 @@ Let’s add a print server to our domain and use Group Policy to deploy it to us
      - **Comment**: `This is the printer in the main office`  
    - Click **Next** until you see **Print a test page**, then test it to confirm it works.
 
-10. Right-click the printer name > **Properties** > **Sharing** tab.  
+11. Right-click the printer name > **Properties** > **Sharing** tab.  
     - Check **List in the directory** > **Apply** > **OK**.
 
 ---
@@ -43,6 +48,10 @@ Let’s add a print server to our domain and use Group Policy to deploy it to us
 4. Right-click the **Printers OU** > **New** > **Group**.  
 5. Name it after your printer (e.g., `OfficePrinter`).  
 6. Add a description: `This deploys OfficePrinter` > **Apply** > **OK**.
+
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/officePrinter.png">
+</p>
 
 ---
 
@@ -58,7 +67,12 @@ Let’s add a print server to our domain and use Group Policy to deploy it to us
    - Check **Item-level targeting** > click **Targeting**.  
    - Click **New Item** > **Security Group**.  
    - Click the three dots (`…`) next to the Group box, type your printer group name (e.g., `OfficePrinter`), and click **OK**.  
-9. Ensure **Action** is set to **Update** > **Apply** > **OK**.  
+9. Ensure **Action** is set to **Update** > **Apply** > **OK**.
+   
+<p align="center">
+   <img src="https://github.com/JBrunoX/Help-Desk-Lab/blob/main/images/ofice%20printer%20targeting.png">
+</p>
+
 10. Drag the **Printer Deployment Policy** GPO to the **Users** OU.
 
 ---
