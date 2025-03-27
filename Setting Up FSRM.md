@@ -1,6 +1,6 @@
 # Setting Up FSRM (File Server Resource Manager)
 
-We’ll use **File Server Resource Manager (FSRM)** to manage and classify data on our file server. This setup includes notifications to alert users when folders near capacity, helping them clean up storage and avoid full disks.
+We’ll use **File Server Resource Manager (FSRM)** to manage and classify data on our file server. This setup includes notifications to alert users when folders are near capacity, helping them clean up storage and avoid full disks.
 
 ---
 
