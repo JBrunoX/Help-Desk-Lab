@@ -1,4 +1,4 @@
-# Welcome to the Help Desk Lab! 🖥️
+# Help Desk Lab: A Hands-On IT Training Playground 🖥️
 
 Hi there! You’ve just stepped into my **Help Desk Lab**, a hands-on playground designed to simulate a real-world help desk environment. Whether you’re an aspiring technician or just curious about IT, this lab is for you! Follow along, tweak things to your liking, and build your skills in a fun, practical way.
 
@@ -24,7 +24,7 @@ Here’s your roadmap to mastering help desk skills. Click any section to dive i
 ### [00: Installation Steps](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Installation.md)  
 *Set up VMware and Windows Server 2025 to kick things off.*
 
-### [01: Add Users, Groups & GPOs](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Add%20Users%2C%20Groups%20%26%20GPOs.md)  
+### [wardedn’t01: Add Users, Groups & GPOs](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Add%20Users%2C%20Groups%20%26%20GPOs.md)  
 *Create users, organize groups, and apply Group Policy Objects.*
 
 ### [02: Add a Computer to the Domain](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Add%20Computers%20to%20the%20Domain.md)  
@@ -36,7 +36,7 @@ Here’s your roadmap to mastering help desk skills. Click any section to dive i
 ### [04: Set Up Network Sharing & Permissions](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Set%20Up%20Network%20Sharing%20%26%20Permissions.md)  
 *Create a shared folder and automate access with a GPO.*
 
-### [05: Setting Up FSRM (File Server Resource Manager)](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Setting%20Up%20FSRM.md)  
+### [05: Setting Up FSRM](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Setting%20Up%20FSRM.md)  
 *Manage storage with quotas and file screening.*
 
 ### [06: Implement and Apply Security Policies](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Implement%20and%20Apply%20Security%20Policies.md)  
