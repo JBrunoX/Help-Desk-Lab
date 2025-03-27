@@ -24,7 +24,7 @@ Here’s your roadmap to mastering help desk skills. Click any section to dive i
 ### [00: Installation Steps](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Installation.md)  
 *Set up VMware and Windows Server 2025 to kick things off.*
 
-### [wardedn’t01: Add Users, Groups & GPOs](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Add%20Users%2C%20Groups%20%26%20GPOs.md)  
+### [t01: Add Users, Groups & GPOs](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Add%20Users%2C%20Groups%20%26%20GPOs.md)  
 *Create users, organize groups, and apply Group Policy Objects.*
 
 ### [02: Add a Computer to the Domain](https://github.com/JBrunoX/Help-Desk-Lab/blob/main/Add%20Computers%20to%20the%20Domain.md)  
